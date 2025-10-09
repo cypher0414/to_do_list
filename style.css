@@ -1,0 +1,212 @@
+/* Body and gradient background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3, #f5af19);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glass container */
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    width: 500px;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Input section */
+.input-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex: 2;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+#task-input::placeholder {
+    color: #f0f0f0;
+}
+
+#priority-select {
+    flex: 1;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    margin-right: 10px;
+    background: rgba(0, 0, 0, 0.3); /* darker background for contrast */
+    color: #fff;
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.7); /* text stroke for better visibility */
+    text-shadow: 0 0 2px rgba(0,0,0,0.7);
+    appearance: none; /* remove default arrow styling for consistency */
+}
+
+/* Optional: add custom arrow for dropdown */
+#priority-select::-ms-expand {
+    display: none; /* remove arrow in IE */
+}
+
+#add-btn {
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: none;
+    background: #ff6b6b;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#add-btn:hover {
+    background: #ff4757;
+    transform: scale(1.05);
+}
+
+/* Filter buttons */
+.filters {
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: #ff6b6b;
+}
+
+/* Task list */
+ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab;
+    transition: all 0.2s ease;
+}
+
+li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Priority labels */
+li.low {
+    border-left: 5px solid #2ed573; /* green */
+}
+
+li.medium {
+    border-left: 5px solid #ffa502; /* orange */
+}
+
+li.high {
+    border-left: 5px solid #ff4757; /* red */
+}
+
+/* Completed task style */
+li.completed span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Buttons inside li */
+button.complete-btn,
+button.delete-btn {
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Complete button */
+button.complete-btn {
+    background: #1e90ff;
+}
+
+button.complete-btn:hover {
+    background: #3399ff;
+}
+
+/* Delete button */
+button.delete-btn {
+    background: #ff4757;
+}
+
+button.delete-btn:hover {
+    background: #ff6b81;
+}
+
+/* Scrollbar */
+ul::-webkit-scrollbar {
+    width: 8px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5);
+}
